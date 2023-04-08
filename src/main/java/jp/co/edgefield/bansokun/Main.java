@@ -1,4 +1,4 @@
-package jp.co.edge-field.bansokun;
+package jp.co.edgefield.bansokun;
 
 public class Main {
     public static void main(String[] args) {
