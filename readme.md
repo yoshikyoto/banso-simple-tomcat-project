@@ -4,8 +4,9 @@
 
 * Java 17
 * Tomcat 10
-* Spring MVC 6 
+* Spring MVC 6
   * Tomcat 10 で Spring Framework を動かす場合 v6 以上が必須です
+* Jackson （JSON シリアライズ/デシリアライズ） 
 * Maven （パッケージ管理）
 
 ## IntelliJ IDEA での開発
@@ -51,5 +52,18 @@ Smart Tomcat の設定
 
 Smart Tomcat の起動
 
-* 右上のビルドパネルのプルダウンで Smart Tomcat を選択した状態で、 Run ボタン（矢印のボタン）または Debug ボタン（虫のボタン）をクリックすると tomcat サーバーが起動する
+* 右上のビルドパネルのプルダウンで Smart Tomcat を選択した状態で、 Run ボタン（矢印のボタン）または Debug ボタン（虫のボタン）をクリックすると Tomcat サーバーが起動する
 * http://localhost:8080/ にアクセスしてサーバーが起動していることを確認する
+
+現状、コードを修正した場合は Tomcat の再起動が必要です
+
+## ディレクトリ構成
+
+パッケージ名（Java コードが入っている = ディレクトリの名前）にはハイフンが使えないので注意してください
+
+* src
+  * main
+    * java/jp/co/edgefield/bansokun -- 伴走くんのコード本体
+    * webapp/WEB-INF -- Tomcat 向けの設定ファイル
+      * web.xml -- Tomcat に来たリクエストを Spring Framework に飛ばす設定
+      * dispatcher-servlet.xml -- web.xml の dispatcher に対応するソースコードのディレクトリ（namespace）の設定
